@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.3
+// @version        1.0.4
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -46,6 +46,24 @@ function carcassonne() {
 
 module.exports.load = () => carcassonne();
 
+/***/ }),
+
+/***/ 598:
+/***/ ((module) => {
+
+function welcometo() {
+  if (window.location.pathname.includes("welcometo")) {
+    console.log("welcometo hacks loaded...");
+    document.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.querySelector('.action-button.bgabutton.bgabutton_blue').click()
+      }
+    });
+  };
+}
+
+module.exports.load = () => welcometo();
+
 /***/ })
 
 /******/ 	});
@@ -80,6 +98,7 @@ var __webpack_exports__ = {};
 const modules = [
   __webpack_require__(229),
   __webpack_require__(352),
+  __webpack_require__(598),
 ]
 
 modules.forEach(module=>{
