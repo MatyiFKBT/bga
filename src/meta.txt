@@ -3,6 +3,7 @@
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
 // @version        <version>
+// @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
 // ==/UserScript==
