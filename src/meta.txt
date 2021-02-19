@@ -1,0 +1,8 @@
+// ==UserScript==
+// @name           BGA Shortcuts
+// @namespace      http://github.com/MatyiFKBT
+// @description    Shortcuts for BGA
+// @version        <version>
+// @downloadURL    https://github.com/MatyiFKBT/bga/releases/latest/download/bga.user.js
+// @include        https://boardgamearena.com/*
+// ==/UserScript==
