@@ -1,12 +1,12 @@
 {
   "name": "bga",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "build:v": "npm version patch && npm run build"
+    "build:v": "npm version patch --force && npm run build"
   },
   "keywords": [],
   "author": "",
