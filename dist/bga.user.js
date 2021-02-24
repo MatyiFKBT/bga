@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.5
+// @version        1.0.6
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -20,6 +20,13 @@ function sevenwondersduel() {
     document.querySelector('#middle_column').addEventListener('click', function(e) {
       if ([...e.target.classList].includes("glow")) {
         document.querySelector('#buttonConstructBuilding').click()
+      }
+
+    })
+    document.querySelector('#middle_column').addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      if ([...e.target.classList].includes("glow")) {
+        document.querySelector('#buttonDiscardBuilding').click()
       }
 
     })

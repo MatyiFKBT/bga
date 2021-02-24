@@ -7,6 +7,13 @@ function sevenwondersduel() {
       }
 
     })
+    document.querySelector('#middle_column').addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      if ([...e.target.classList].includes("glow")) {
+        document.querySelector('#buttonDiscardBuilding').click()
+      }
+
+    })
   };
 }
 
