@@ -1,12 +1,12 @@
 {
   "name": "bga",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "build:v": "npm version patch --force --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit -am v$PACKAGE_VERSION"
+    "build:v": "npm version patch --force --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git add . && git commit -am v$PACKAGE_VERSION && git push"
   },
   "keywords": [],
   "author": "",
