@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
-    "build:v": "npm version patch --force --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git add . && git commit -am v$PACKAGE_VERSION && git push"
+    "build:v": "npm version patch --force --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git add . && git commit -am v$PACKAGE_VERSION && git push --set-upstream origin master"
   },
   "keywords": [],
   "author": "",
