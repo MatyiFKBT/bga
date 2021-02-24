@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.9
+// @version        1.0.10
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -79,9 +79,9 @@ module.exports.load = () => hearts();
 function lostcities() {
   if (window.location.pathname.includes("lostcities")) {
     function draw() {
-      decks = document.querySelectorAll('div.pick_card');
-      pickCards = document.querySelector('#pick_cards');
-      pakli = document.querySelector("#deck_action>.pick_card_inner");
+      const decks = document.querySelectorAll('div.pick_card');
+      const pickCards = document.querySelector('#pick_cards');
+      const pakli = document.querySelector("#deck_action>.pick_card_inner");
       if ([...decks].filter(deck => deck.style.display == "block").length == 0) {
         console.log("paklibol huzok")
         pakli.click()
@@ -91,6 +91,7 @@ function lostcities() {
     }
     document.querySelector('#arrow_down_wrap').addEventListener('click', () => { setTimeout(() => { draw() }, 1000) })
     document.querySelector('#arrow_up_wrap').addEventListener('click', () => { setTimeout(() => { draw() }, 1000) })
+    console.log('lostcities hacks loaded...')
   };
 }
 
