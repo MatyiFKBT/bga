@@ -3,6 +3,7 @@ const modules = [
   require('./carcassonne.js'),
   require('./welcometo.js'),
   require('./hearts.js'),
+  require('./lostcities.js'),
 ]
 
 modules.forEach(module=>{

@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.6
+// @version        1.0.7
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -73,6 +73,31 @@ module.exports.load = () => hearts();
 
 /***/ }),
 
+/***/ 502:
+/***/ ((module) => {
+
+function lostcities() {
+  if (window.location.pathname.includes("lostcities")) {
+    function draw() {
+      decks = document.querySelectorAll('div.pick_card');
+      pickCards = document.querySelector('#pick_cards');
+      pakli = document.querySelector("#deck_action>.pick_card_inner");
+      if ([...decks].filter(deck => deck.style.display == "block").length == 0) {
+        console.log("paklibol huzok")
+        pakli.click()
+      } else {
+        console.log("nem tudok automatikusan huzni")
+      }
+    }
+    document.querySelector('#arrow_down_wrap').addEventListener('click', () => { setTimeout(() => { draw() }, 1000) })
+    document.querySelector('#arrow_up_wrap').addEventListener('click', () => { setTimeout(() => { draw() }, 1000) })
+  };
+}
+
+module.exports.load = () => lostcities();
+
+/***/ }),
+
 /***/ 598:
 /***/ ((module) => {
 
@@ -125,6 +150,7 @@ const modules = [
   __webpack_require__(352),
   __webpack_require__(598),
   __webpack_require__(465),
+  __webpack_require__(502),
 ]
 
 modules.forEach(module=>{
