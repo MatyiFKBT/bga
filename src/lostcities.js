@@ -17,13 +17,15 @@ function lostcities() {
     document.querySelector('#arrow_up_wrap').addEventListener('click', () => { setTimeout(() => { draw() }, 1000) })
 
     const arr = document.querySelector('#arrow_down_wrap');
-    document.querySelectorAll('.stockitem').forEach(i=>i.addEventListener('contextmenu',(e)=>{
-      e.preventDefault(); 
-      e.target.click();
-      setTimeout(()=>{arr.click()},350);
-      setTimeout(()=>{pakli.click()},550);
-      })
-    );
+    setTimeout(()=>{
+      document.querySelectorAll('.stockitem').forEach(i=>i.addEventListener('contextmenu',(e)=>{
+        e.preventDefault(); 
+        e.target.click();
+        setTimeout(()=>{arr.click()},350);
+        setTimeout(()=>{pakli.click()},550);
+        })
+      );
+    }, 1000);
     console.log('lostcities hacks loaded...')
   };
 }
