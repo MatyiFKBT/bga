@@ -4,6 +4,7 @@ const modules = [
   require('./welcometo.js'),
   require('./hearts.js'),
   require('./lostcities.js'),
+  require('./draftosaurus.js'),
 ]
 
 modules.forEach(module=>{
