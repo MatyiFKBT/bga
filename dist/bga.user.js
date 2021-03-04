@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.12
+// @version        1.0.13
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -52,6 +52,69 @@ function carcassonne() {
 }
 
 module.exports.load = () => carcassonne();
+
+/***/ }),
+
+/***/ 115:
+/***/ ((module) => {
+
+function draftosaurus() {
+  if (window.location.pathname.includes("draftosaurus")) {
+    const dinos = {
+      "Zöld": "parasaurolophus",
+      "Lila": "brachiosaurus",
+      "Sárga": "triceratops",
+      "Kék": "stegosaurus",
+      "Narancs": "spinodon",
+      "Piros": "t-rex"    
+    };
+    document.querySelector('#counter-wrap').innerHTML+=`<div id="extrainfo"></div>`
+    const extrainfo = document.querySelector('#extrainfo');
+    
+    const zold = "hsla(120,100%,25%,0.3)";
+
+
+    function calcDino(name){
+      return  [...document.querySelectorAll(`.dino.player-info.${name}`)].map(e=>e.childNodes[0].textContent).reduce((a,b)=>parseInt(a)+parseInt(b),0)
+    }
+
+    function calc(){
+      
+      let finalText = '';
+      for (color in dinos){
+        const dino = dinos[color];
+        finalText+=`${color}: ${calcDino(dino)} (${calcDino(dino)/8*100}%)<br/>`
+      }
+      
+      extrainfo.innerHTML = finalText
+      colorTop()
+    }
+      
+    function colorTop(){
+      [...document.querySelectorAll('.dino-number')].forEach(item=>item.style.background = '')
+      for (color in dinos){
+        const dino = dinos[color];
+        let topSzam = 0;
+        let topElems = [];
+        [...document.querySelectorAll(`.dino.player-info.${dino}`)].forEach(item=>{
+          if(parseInt(item.childNodes[0].textContent)>topSzam){
+            topSzam = parseInt(item.childNodes[0].textContent);
+            topElem = item.childNodes[0];
+          }
+        })
+        if(topElems && topSzam>0){
+          topElem.style.background = zold;
+        }
+      }
+    }
+    document.querySelector('.board').addEventListener('click',calc);
+    
+    console.log("draftosaurus hacks loaded...");
+    
+  };
+}
+
+module.exports.load = () => draftosaurus();
 
 /***/ }),
 
@@ -165,6 +228,7 @@ const modules = [
   __webpack_require__(598),
   __webpack_require__(465),
   __webpack_require__(502),
+  __webpack_require__(115),
 ]
 
 modules.forEach(module=>{
