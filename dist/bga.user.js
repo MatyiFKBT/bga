@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.14
+// @version        1.0.15
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -174,6 +174,34 @@ module.exports.load = () => lostcities();
 
 /***/ }),
 
+/***/ 152:
+/***/ ((module) => {
+
+function loveletter() {
+    if (window.location.pathname.includes("loveletter")) {
+
+        let mousestart = null;
+
+        document.addEventListener('mouseup', e => {
+            if (mousestart) {
+                mousestart = null;
+                setTimeout(() => { e.target.click() }, 250);
+            }
+        });
+        setTimeout(() => {
+            document.querySelector('.playertable').addEventListener('mousedown', e => {
+                mousestart = e.target;
+                mousestart.click();
+            })
+        }, 650);
+        console.log("loveletter hacks loaded...");
+    };
+}
+
+module.exports.load = () => loveletter();
+
+/***/ }),
+
 /***/ 598:
 /***/ ((module) => {
 
@@ -228,6 +256,7 @@ const modules = [
   __webpack_require__(465),
   __webpack_require__(502),
   __webpack_require__(115),
+  __webpack_require__(152),
 ]
 
 modules.forEach(module=>{
