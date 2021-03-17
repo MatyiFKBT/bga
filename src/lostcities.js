@@ -2,7 +2,7 @@ function lostcities() {
   if (window.location.pathname.includes("lostcities")) {
     const pakli = document.querySelector("#deck_action>.pick_card_inner");
     const decks = document.querySelectorAll('div.pick_card');
-    const pickCards = document.querySelector('#pick_cards');
+    //const pickCards = document.querySelector('#pick_cards');
     const arr = document.querySelector('#arrow_down_wrap');
     const arrUp = document.querySelector('#arrow_up_wrap');
     

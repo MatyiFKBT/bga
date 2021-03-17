@@ -26,8 +26,8 @@ function seasons() {
             else if (szamok.includes(e.key) && shift) {
                 const szam = e.key;
                 console.log(e);
-                kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
-                lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
+                const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
+                const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
                 if (kockak.length > 1) { kockak[szam - 1].click(); }
                 else {
                     lapok[szam - 1].click();

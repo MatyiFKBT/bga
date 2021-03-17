@@ -21,7 +21,7 @@ function draftosaurus() {
     function calc(){
       
       let finalText = '';
-      for (color in dinos){
+      for (let color in dinos){
         const dino = dinos[color];
         finalText+=`${color}: ${calcDino(dino)} (${calcDino(dino)/8*100}%)<br/>`
       }
@@ -32,10 +32,11 @@ function draftosaurus() {
       
     function colorTop(){
       [...document.querySelectorAll('.dino-number')].forEach(item=>item.style.background = '')
-      for (color in dinos){
+      for (let color in dinos){
         const dino = dinos[color];
         let topSzam = 0;
         let topElems = [];
+        let topElem;
         [...document.querySelectorAll(`.dino.player-info.${dino}`)].forEach(item=>{
           if(parseInt(item.childNodes[0].textContent)>topSzam){
             topSzam = parseInt(item.childNodes[0].textContent);

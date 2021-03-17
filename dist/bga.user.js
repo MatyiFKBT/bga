@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.17
+// @version        1.0.18
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -81,7 +81,7 @@ function draftosaurus() {
     function calc(){
       
       let finalText = '';
-      for (color in dinos){
+      for (let color in dinos){
         const dino = dinos[color];
         finalText+=`${color}: ${calcDino(dino)} (${calcDino(dino)/8*100}%)<br/>`
       }
@@ -92,10 +92,11 @@ function draftosaurus() {
       
     function colorTop(){
       [...document.querySelectorAll('.dino-number')].forEach(item=>item.style.background = '')
-      for (color in dinos){
+      for (let color in dinos){
         const dino = dinos[color];
         let topSzam = 0;
         let topElems = [];
+        let topElem;
         [...document.querySelectorAll(`.dino.player-info.${dino}`)].forEach(item=>{
           if(parseInt(item.childNodes[0].textContent)>topSzam){
             topSzam = parseInt(item.childNodes[0].textContent);
@@ -143,7 +144,7 @@ function lostcities() {
   if (window.location.pathname.includes("lostcities")) {
     const pakli = document.querySelector("#deck_action>.pick_card_inner");
     const decks = document.querySelectorAll('div.pick_card');
-    const pickCards = document.querySelector('#pick_cards');
+    //const pickCards = document.querySelector('#pick_cards');
     const arr = document.querySelector('#arrow_down_wrap');
     const arrUp = document.querySelector('#arrow_up_wrap');
     
@@ -233,8 +234,8 @@ function seasons() {
             else if (szamok.includes(e.key) && shift) {
                 const szam = e.key;
                 console.log(e);
-                kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
-                lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
+                const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
+                const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
                 if (kockak.length > 1) { kockak[szam - 1].click(); }
                 else {
                     lapok[szam - 1].click();
