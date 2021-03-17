@@ -26,21 +26,22 @@ function seasons() {
             else if (szamok.includes(e.key) && shift) {
                 const szam = e.key;
                 console.log(e);
-                const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
-                const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
-                if (kockak.length > 1) { kockak[szam - 1].click(); }
-                else {
-                    lapok[szam - 1].click();
-                }
+                const energiak = [...document.querySelector('.energies').querySelectorAll('.stockitem')];
+                energiak[szam - 1].click();
             } else if (szamok.includes(e.key)) {
                 const szam = e.key;
                 const energiak = [...document.querySelector('.energy_reserve').querySelectorAll('.stockitem')];
                 const akciok = [...document.querySelector('#generalactions').querySelectorAll('.bgabutton')];
-                if(akciok.length>1){
-                    akciok[szam-1].click();
+                const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
+                const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
+                if (akciok.length > 1) {
+                    akciok[szam - 1].click();
                 }
-                else if (energiak.length > 0) {
+                else if (kockak.length > 1) {
                     energiak[szam - 1].click();
+                }
+                else {
+                    lapok[szam - 1].click();
                 }
 
             }
