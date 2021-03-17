@@ -30,7 +30,6 @@ function seasons() {
                 energiak[szam - 1].click();
             } else if (szamok.includes(e.key)) {
                 const szam = e.key;
-                const energiak = [...document.querySelector('.energy_reserve').querySelectorAll('.stockitem')];
                 const akciok = [...document.querySelector('#generalactions').querySelectorAll('.bgabutton')];
                 const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
                 const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
@@ -38,7 +37,7 @@ function seasons() {
                     akciok[szam - 1].click();
                 }
                 else if (kockak.length > 1) {
-                    energiak[szam - 1].click();
+                    kockak[szam - 1].click();
                 }
                 else {
                     lapok[szam - 1].click();

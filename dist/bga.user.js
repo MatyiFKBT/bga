@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.20
+// @version        1.0.21
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -238,7 +238,6 @@ function seasons() {
                 energiak[szam - 1].click();
             } else if (szamok.includes(e.key)) {
                 const szam = e.key;
-                const energiak = [...document.querySelector('.energy_reserve').querySelectorAll('.stockitem')];
                 const akciok = [...document.querySelector('#generalactions').querySelectorAll('.bgabutton')];
                 const kockak = [...document.querySelector('#seasons_dices').querySelectorAll('.stockitem')];
                 const lapok = [...document.querySelector('#player_hand').querySelectorAll('.stockitem')];
@@ -246,7 +245,7 @@ function seasons() {
                     akciok[szam - 1].click();
                 }
                 else if (kockak.length > 1) {
-                    energiak[szam - 1].click();
+                    kockak[szam - 1].click();
                 }
                 else {
                     lapok[szam - 1].click();
