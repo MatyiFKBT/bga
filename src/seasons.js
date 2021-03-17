@@ -3,7 +3,7 @@ function seasons() {
         //variables
 
         let shift = false;
-        const szamok = ["1", "2", "3", "4", "5","6","7","8","9"];
+        const szamok = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
         //functions
         function removeChat() {
@@ -32,13 +32,25 @@ function seasons() {
                 else {
                     lapok[szam - 1].click();
                 }
-            } else if (e.key === "c" && shift) {
+            } else if (szamok.includes(e.key)) {
+                const szam = e.key;
+                const energiak = [...document.querySelector('.energy_reserve').querySelectorAll('.stockitem')];
+                const akciok = [...document.querySelector('#generalactions').querySelectorAll('.bgabutton')];
+                if(akciok.length>1){
+                    akciok[szam-1].click();
+                }
+                else if (energiak.length > 0) {
+                    energiak[szam - 1].click();
+                }
+
+            }
+            else if (e.key === "c" && shift) {
                 removeChat();
             }
         })
 
         document.addEventListener('keyup', (e) => {
-          if (e.key === 'Alt') shift = false;
+            if (e.key === 'Alt') shift = false;
         });
         console.log("seasons hacks loaded...");
     };
