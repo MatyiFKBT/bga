@@ -1,0 +1,16 @@
+{
+    "Game": {
+        "prefix": "ngam",
+        "body": [
+          "function ${1:game}() {",
+          "  if (window.location.pathname.includes(\"${1:game}\")) {",
+          "    ${2}",
+          "    console.log(\"${1:game} hacks loaded...\");",
+          "  };",
+          "}",
+          "",
+          "module.exports.load = () => ${1:game}();"
+        ],
+        "description": "Game"
+      }
+}
