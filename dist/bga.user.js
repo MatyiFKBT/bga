@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.22
+// @version        1.0.23
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -75,7 +75,7 @@ function draftosaurus() {
 
 
     function calcDino(name){
-      return  [...document.querySelectorAll(`.dino.player-info.${name}`)].map(e=>e.childNodes[0].textContent).reduce((a,b)=>parseInt(a)+parseInt(b),0)
+      return [...document.querySelectorAll(`.dino.player-info.${name}`)].map(e=>e.childNodes[0].textContent).reduce((a,b)=>parseInt(a)+parseInt(b),0)
     }
 
     function calc(){
@@ -91,7 +91,7 @@ function draftosaurus() {
     }
       
     function colorTop(){
-      [...document.querySelectorAll('.dino-number')].forEach(item=>item.style.background = '')
+      [...document.querySelectorAll('.dino-number')].forEach(item=>{item.style.background = ''})
       for (let color in dinos){
         const dino = dinos[color];
         let topSzam = 0;
@@ -268,6 +268,50 @@ module.exports.load = () => seasons();
 
 /***/ }),
 
+/***/ 700:
+/***/ ((module) => {
+
+function table() {
+    if (window.location.pathname.includes("table")) {
+        const buttons = document.querySelectorAll('.bgabuttonbar')[1];
+        let newBtn = document.createElement('a');
+        newBtn.className = "bgabutton bgabutton_blue tableaction";
+        let sp = document.createElement('span');
+        sp.innerText = 'Upload to BGG';
+        newBtn.appendChild(sp);
+        newBtn.addEventListener('click',()=>uploadToBGG());
+        buttons.appendChild(newBtn);
+        console.log("table hacks loaded...");
+
+        function uploadToBGG(){
+            const game = document.querySelector('#table_name').innerText;
+            const scores = [...document.querySelectorAll('.score')].map(e=>parseInt(e.innerText.trim()));
+            const players = [...document.querySelectorAll('.name')].map(e=>e.textContent);
+            const minutes = document.querySelector('#estimated_duration').textContent.split(' ')[0];
+            const gamedate = document.querySelector('#creationtime').innerText.split('Készítve')[1].replace('-kor','').trim();
+            let res = {}
+            for (let i = 0; i < players.length; i++) {
+                const player = players[i];
+                const score = scores[i];
+                res[player] = score;
+            }
+            const toSend = {
+                game,
+                res,
+                minutes,
+                gamedate
+            }
+            console.log(toSend)
+        
+        
+        }
+    };
+}
+
+module.exports.load = () => table();
+
+/***/ }),
+
 /***/ 598:
 /***/ ((module) => {
 
@@ -324,6 +368,7 @@ const modules = [
   __webpack_require__(115),
   __webpack_require__(152),
   __webpack_require__(802),
+  __webpack_require__(700),
 ]
 
 modules.forEach(module=>{

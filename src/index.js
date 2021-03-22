@@ -7,6 +7,7 @@ const modules = [
   require('./draftosaurus.js'),
   require('./loveletter.js'),
   require('./seasons.js'),
+  require('./table.js'),
 ]
 
 modules.forEach(module=>{

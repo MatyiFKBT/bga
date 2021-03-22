@@ -15,7 +15,7 @@ function draftosaurus() {
 
 
     function calcDino(name){
-      return  [...document.querySelectorAll(`.dino.player-info.${name}`)].map(e=>e.childNodes[0].textContent).reduce((a,b)=>parseInt(a)+parseInt(b),0)
+      return [...document.querySelectorAll(`.dino.player-info.${name}`)].map(e=>e.childNodes[0].textContent).reduce((a,b)=>parseInt(a)+parseInt(b),0)
     }
 
     function calc(){
@@ -31,7 +31,7 @@ function draftosaurus() {
     }
       
     function colorTop(){
-      [...document.querySelectorAll('.dino-number')].forEach(item=>item.style.background = '')
+      [...document.querySelectorAll('.dino-number')].forEach(item=>{item.style.background = ''})
       for (let color in dinos){
         const dino = dinos[color];
         let topSzam = 0;
