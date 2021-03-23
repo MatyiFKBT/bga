@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.23
+// @version        1.0.24
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -275,7 +275,7 @@ function table() {
     if (window.location.pathname.includes("table")) {
         const buttons = document.querySelectorAll('.bgabuttonbar')[1];
         let newBtn = document.createElement('a');
-        newBtn.className = "bgabutton bgabutton_blue tableaction";
+        newBtn.className = "bgabutton bgabutton_blue tableaction bggsavebtn";
         let sp = document.createElement('span');
         sp.innerText = 'Upload to BGG';
         newBtn.appendChild(sp);
@@ -302,7 +302,9 @@ function table() {
                 gamedate
             }
             console.log(toSend)
-        
+            fetch('https://bga2bgg.herokuapp.com/',{body: JSON.stringify(toSend), method: 'POST'}).then(r=>{if(r.status==200){
+                document.querySelector('.bggsavebtn').style.background = "green"
+            }});
         
         }
     };
