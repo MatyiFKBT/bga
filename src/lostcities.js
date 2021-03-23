@@ -21,8 +21,8 @@ function lostcities() {
     document.querySelector('#player_hand').addEventListener('contextmenu',(e)=>{
       e.preventDefault(); 
       e.target.click();
-      setTimeout(()=>{arr.click()},350);
-      setTimeout(()=>{pakli.click()},550);
+      setTimeout(()=>{arr.click()},200);
+      setTimeout(()=>{pakli.click()},400);
       }
     );
     console.log('lostcities hacks loaded...')
