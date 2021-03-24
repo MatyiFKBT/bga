@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.25
+// @version        1.0.26
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -116,6 +116,30 @@ function draftosaurus() {
 }
 
 module.exports.load = () => draftosaurus();
+
+/***/ }),
+
+/***/ 498:
+/***/ ((module) => {
+
+function global() {
+    let altDown = false;
+    document.addEventListener('keydown', e => {
+        console.log(e.key, altDown);
+        if (e.key === 'Alt') {
+            altDown = true
+        }
+        else if (e.key === "b" && altDown) {
+            window.location.href = "http://" + window.location.hostname + "/table" + window.location.search
+        }
+    })
+
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'Alt') altDown = false;
+    });
+}
+
+module.exports.load = () => global();
 
 /***/ }),
 
@@ -305,7 +329,6 @@ function table() {
             fetch('https://bga2bgg.herokuapp.com/',{body: JSON.stringify(toSend), method: 'POST'}).then(r=>{if(r.status==200){
                 document.querySelector('.bggsavebtn').style.background = "green"
             }});
-        
         }
     };
 }
@@ -362,6 +385,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const modules = [
+  __webpack_require__(498),
   __webpack_require__(229),
   __webpack_require__(352),
   __webpack_require__(598),

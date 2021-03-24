@@ -32,7 +32,6 @@ function table() {
             fetch('https://bga2bgg.herokuapp.com/',{body: JSON.stringify(toSend), method: 'POST'}).then(r=>{if(r.status==200){
                 document.querySelector('.bggsavebtn').style.background = "green"
             }});
-        
         }
     };
 }
