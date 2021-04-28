@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.26
+// @version        1.0.27
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -292,6 +292,37 @@ module.exports.load = () => seasons();
 
 /***/ }),
 
+/***/ 941:
+/***/ ((module) => {
+
+function splendor() {
+    if (window.location.pathname.includes("splendor")) {
+        console.log("splendor hacks loaded...");
+        document.querySelector('#cards').addEventListener('click', function (e) {
+            console.log(e.target.parentElement)
+            if ([...e.target.parentElement.classList].includes("canbuy")) {
+                console.log("buying")
+                setTimeout(() => {
+                    document.querySelector('#btn_sendpay').click()
+                }, 1000);
+                document.querySelector('#btn_sendpay').click()
+            }
+
+        })
+        document.querySelector('#cards').addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            if ([...e.target.parentElement.classList].includes("canreserve")) {
+                document.querySelector('#btn_reserve').click()
+            }
+
+        })
+    };
+}
+
+module.exports.load = () => splendor();
+
+/***/ }),
+
 /***/ 700:
 /***/ ((module) => {
 
@@ -395,6 +426,7 @@ const modules = [
   __webpack_require__(152),
   __webpack_require__(802),
   __webpack_require__(700),
+  __webpack_require__(941),
 ]
 
 modules.forEach(module=>{

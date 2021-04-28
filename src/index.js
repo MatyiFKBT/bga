@@ -9,6 +9,7 @@ const modules = [
   require('./loveletter.js'),
   require('./seasons.js'),
   require('./table.js'),
+  require('./splendor.js'),
 ]
 
 modules.forEach(module=>{
