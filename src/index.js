@@ -10,6 +10,7 @@ const modules = [
   require('./seasons.js'),
   require('./table.js'),
   require('./splendor.js'),
+  require('./cubirds.js'),
 ]
 
 modules.forEach(module=>{
