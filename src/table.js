@@ -11,7 +11,10 @@ function table() {
         console.log("table hacks loaded...");
 
         function uploadToBGG(){
-            const game = document.querySelector('#table_name').innerText;
+            let game = document.querySelector('#table_name').innerText;
+            if(game.includes(' - ')){
+                game = game.split(' - ')[0]; 
+            }
             const scores = [...document.querySelectorAll('.score')].map(e=>parseInt(e.innerText.trim()));
             const players = [...document.querySelectorAll('.name')].map(e=>e.textContent);
             const minutes = document.querySelector('#estimated_duration').textContent.split(' ')[0];
