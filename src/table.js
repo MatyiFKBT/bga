@@ -15,6 +15,12 @@ function table() {
             if(game.includes(' - ')){
                 game = game.split(' - ')[0]; 
             }
+            if(game.includes(':')){
+                game = game.split(':')[0]; 
+            }
+            if(game.includes('(')){
+                game = game.split('(')[0]; 
+            }
             const scores = [...document.querySelectorAll('.score')].map(e=>parseInt(e.innerText.trim()));
             const players = [...document.querySelectorAll('.name')].map(e=>e.textContent);
             const minutes = document.querySelector('#estimated_duration').textContent.split(' ')[0];

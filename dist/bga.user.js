@@ -2,7 +2,7 @@
 // @name           BGA Shortcuts
 // @namespace      http://github.com/MatyiFKBT
 // @description    Shortcuts for BGA
-// @version        1.0.29
+// @version        1.0.30
 // @author         MatyiFKBT
 // @downloadURL    https://github.com/MatyiFKBT/bga/raw/master/dist/bga.user.js
 // @include        https://boardgamearena.com/*
@@ -361,6 +361,12 @@ function table() {
             let game = document.querySelector('#table_name').innerText;
             if(game.includes(' - ')){
                 game = game.split(' - ')[0]; 
+            }
+            if(game.includes(':')){
+                game = game.split(':')[0]; 
+            }
+            if(game.includes('(')){
+                game = game.split('(')[0]; 
             }
             const scores = [...document.querySelectorAll('.score')].map(e=>parseInt(e.innerText.trim()));
             const players = [...document.querySelectorAll('.name')].map(e=>e.textContent);
